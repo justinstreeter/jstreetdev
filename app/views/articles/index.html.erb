@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+        <div class="row">
+            <% @articles.each do |article| %>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                <div class="post-preview">
+                      
+                        <h2 class="post-title">
+                           <%= article.title %>
+                        </h2>
+        
+                        <h3 class="post-subtitle">
+                            <%= article.excerpt %>
+                        </h3>
+                        <h3><%= article.location %></h3>
+                        <p><%= article.body %></p>
+                    
+                    <p class="post-meta">Posted On <%= article.published_at %></p>
+                    <p class= "options"><%= link_to 'Show', article %></p>
+                    <p class= "options"><%= link_to 'Edit', edit_article_path(article) %></p>
+        <p class= "options"><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+                   
+                    <p><%= link_to 'New Article', new_article_path %></p>
+                </div>
+                <hr>
+            </div>
+    <% end %>
